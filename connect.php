@@ -8,8 +8,8 @@ session_start();
 
     $name = $_POST['usrid'];
     $pass = $_POST['pswd'];
-
-    $s = " SELECT * FROM `users` WHERE `username` = '$name' AND `password` = '$pass'";
+    $encPASS=hash('SHA256',$pass);
+    $s = " SELECT * FROM `users` WHERE `username` = '$name' AND `password` = '$encPASS'";
 
     $res = mysqli_query($conn,$s);
     $num = mysqli_num_rows($res);
@@ -17,23 +17,25 @@ session_start();
     if($num == 1)
     {
       $usr = mysqli_fetch_object($res);
+      $_SESSION['user']=$name;
+      $_SESSION['perm']=$usr->permission;
 
       if($usr->permission == 0){
-        header('location:admin.html');
+        header('location:admin.php');
       }
 
       if($usr->permission == 1){
-        header('location:usr_main.html');
+        header('location:usr_main.php');
       }
 
       if($usr->permission == 2){
-        header('location:premium_main.html');
+        header('location:premium_main.php');
       }
 
     }
 
     else {
-      echo "FAIL";
+      header('location:login.php');
     }
 
 ?>
