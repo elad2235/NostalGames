@@ -36,7 +36,8 @@ session_start();
     <?php
   }
   else {
-  $s =" INSERT INTO `users`(`username`, `password`, `permission`) VALUES ('$name','$pass',1)";
+    $encPASS= hash('SHA256',$pass);
+  $s =" INSERT INTO `users`(`username`, `password`, `permission`,`date`) VALUES ('$name','$encPASS',1,CURDATE())";
   mysqli_query($conn,$s);
   header('location:Login.php');
   }
