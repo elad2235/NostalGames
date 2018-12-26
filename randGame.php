@@ -18,7 +18,7 @@ else {
       }
 
       else {
-        header('location:/4inrow/connectfour.html');
+        header('location:/cardBattle/battle.html');
       }
     }
 }
