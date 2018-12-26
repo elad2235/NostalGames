@@ -24,12 +24,11 @@ h2 {color: blue;}
 <div class="w3-container" align="center">
     <p><a href="gamelib.html"> <img src="img/play-btn.png" ></a></p>
     <p><a href="test.php"> <img src="img/scoreboard-btn.png" ></a></p>
-    <p><a href="test.php"> <img src="img/manage_users-btn.png" ></a></p>
+    <p><a href="/adminQ/timeTable.php"> <img src="img/manage_users-btn.png" ></a></p>
     <p><a href="disconnect.php"> <img src="img/logout-btn.png" ></a></p>
 </div>
 <div class="admin">
   <h2><img src = img/admin_panel.png></h2>
-  <p><a href="adminQ/Num_of_usr.php"> <img src="img/user_count-btn.png" ></a></p>
   <p><a href="test.php"> <img src="img/messages-btn.png" ></a></p>
   <p><a href="adminq/premiumusers.php"> <img src="img/prem_users-btn.png" ></a></p>
   <p><a href="adminQ/UserPerm.php"> <img src="img/user-permissions-btn.png" ></a></p>
