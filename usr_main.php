@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +38,7 @@ h1 {color: blue;}
 
 <h1 align="center"><img src = img/welcome.png></h1>
 <div class="w3-container" align="center">
-  <p><a href="gamelib.html"> <img src="img/play-btn.png" ></a></p>
+  <p><a href="gamelib_base.html"> <img src="img/play-btn.png" ></a></p>
   <p><a href="test.php"> <img src="img/scoreboard-btn.png" ></a></p>
   <p><a href="randGame.php"> <img src="img/random-btn.png" ></a></p>
   <p><a href="userq/info.php"> <img src="img/usr_info-btn.png" ></a></p>
@@ -58,6 +59,18 @@ h1 {color: blue;}
           echo '<img src="ads/ad2.jpeg" class="pic">';
           if($num==3)
               echo '<img src="ads/ad3.jpeg" class="pic">';
+
+
+
+              session_start();
+                  $servername ="localhost";
+                  $username ="root";
+                  $password = "12345";
+                  $conn = mysqli_connect($servername,$username,$password);
+                  mysqli_select_db($conn,'nostalgames_db');
+
+                  $a = "INSERT INTO `income`(`date`, `source`,`amount`) VALUES (CURDATE(),'ads',0.8)";
+                  $res = mysqli_query($conn,$a);
 
 
     ?>
