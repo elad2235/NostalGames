@@ -24,7 +24,7 @@ session_start();
     ?>
     <script type='text/javascript'>
             alert('<?php echo "number of admins is $ad, number of base users is $base, number of premiun users is $pre." ?>');
-            window.location.replace("../admin.html");
+            window.location.replace("../admin.php");
           </script>
   <?php
 

@@ -1,0 +1,86 @@
+@import url(<link href="https://fonts.googleapis.com/css?family=Asap:400,600" rel="stylesheet">);
+
+body
+{
+  margin: 0;
+  padding: 0;
+  background-size: 100%;
+  font-family: 'Asap',sans-serif;
+  background-image: url("bgGame.jpeg");
+}
+
+h3
+{
+  text-align: center;
+  font-family: 'Asap',sans-serif;
+  font-size: 50px;
+}
+
+.container
+{
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
+  grid-gap: 10px;
+  background-color: transparent;
+  color: #444;
+}
+
+.square
+{
+  height: 50%;
+  width: 45%;
+  margin: 10px;
+  margin-bottom:20px;
+  background-color: #25272E;
+  opacity: 0.7;
+  color: #fff;
+  border-radius: 50%;
+  padding: 20px;
+  font-size: 150%;
+  text-align: center;
+  transition: all 0.5s ease;
+  border: 2px solid;
+  border-color:black;
+
+}
+
+
+.box-container
+{
+background-color: transparent;
+position: absolute;
+top:50%;
+left: 50%;
+width: auto;
+transform: translate(-50%,-50%);
+min-height: 200px;
+border-radius: 10px;
+padding: 20px;
+box-sizing: border-box;
+
+border-left: 10px solid;
+border-right: 10px solid;
+border-bottom: 10px solid;
+border-color:black;
+
+
+}
+
+.square:hover{
+  cursor:pointer;
+  background: #708090;
+}
+
+
+.Score{
+  margin: 20px auto;
+  border: 10px solid black;
+  text-align: center;
+  width:200px;
+  font-size:46px;
+  padding: 15px 20px;
+  font-family: Asap,sans-serif;
+  position:absolute;
+  right:50px;
+  background-color: "black";
+}

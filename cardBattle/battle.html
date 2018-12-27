@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<style>
+.draw{
+  color: black;
+  font-size: 10px;
+  margin: 35px;
+  text-align: justify;
+  padding-top:130px;
+  text-decoration: underline;
+}
+.user{
+  color: black;
+  font-size: 30px;
+  padding-top:130px;
+  text-decoration: underline;
+}
+  input[type=submit] {
+    background: url("../img/draw-btn.png");
+    border: 1px;
+    display: block;
+    height: 50px;
+    width: 159px;
+}
+  .cards{
+    column-count: 2;
+
+  }
+  div.gallery {
+  border: 1px solid #000;
+  background: white;
+}
+
+div.gallery:hover {
+  border: 1px solid #000;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+
+div.txt {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: center;
+  width: 25%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 15%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+    background-image: url("../img/bg.png");
+    background-size: 100%;
+}
+h1 {color: blue;}
+</style>
+</head>
+<body>
+
+<h1 align="center"><img src = ../img/welcome.png></h1>
+<script>
+  window.onload=function()
+  {
+
+  var deck = new Array();
+	var suits = ["spades", "diamonds", "clubs", "hearts"];
+	var values = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+	var p1_deck = new Array();
+	var p2_deck = new Array();
+
+	getDeck(); //build a deck
+	shuffle(); //shuffle the deck
+	deal(); //deal it between the players
+	var battleField = new Array();
+	var p1_deck_size = p1_deck.length;
+	var p2_deck_size = p2_deck.length;
+	function getDeck()
+	{
+
+		for(var i = 0; i < suits.length; i++)
+		{
+			for(var x = 0; x < values.length; x++)
+			{
+				var card = [values[x],suits[i]];
+				deck.push(card);
+			}
+		}
+
+
+		return deck;
+	}
+
+	function shuffle()
+	{
+		for (var i = 0; i < 1000; i++)
+		{
+			var location1 = Math.floor((Math.random() * deck.length));
+			var location2 = Math.floor((Math.random() * deck.length));
+			var tmp = deck[location1];
+
+			deck[location1] = deck[location2];
+			deck[location2] = tmp;
+		}
+	}
+
+	function deal(){
+		var j = 0
+		for(i=0;i<deck.length;i++){
+			if(i<(deck.length/2)){
+				p1_deck[i]=deck[i];
+				}
+			else{
+			p2_deck[j] = deck[i];
+			j++;
+			}
+		}
+	}
+  function card_convert(arg){
+    var value ="";
+    if (arg[0] < 11) {value = arg[0].toString();}
+    if (arg[0] == 11) {value = "J";}
+    if (arg[0] == 12) {value = "Q";}
+    if (arg[0] == 13) {value = "K";}
+    if (arg[0] == 14) {value = "A";}
+    return value;
+  }
+  function stop(battleField,p1_deck,p2_deck){
+    if(p1_deck.length <=0){
+      alert("Game over. You won!");
+      exit();
+    }
+    if(p2_deck.length <=0){
+      alert("Game over. You lost!");
+      exit();
+    }
+    console.log("length is "+battleField.length);
+    console.log(battleField);
+    if(battleField[battleField.length-2][0]>battleField[battleField.length-1][0]){
+      for(_ in battleField){
+        p1_deck.unshift(battleField[_]);
+      }
+      p1_deck_size-=battleField.length/2;
+      p2_deck_size+=battleField.length/2;
+      var conclusion = "You won this battle!"
+
+    }
+    if(battleField[battleField.length-2][0]<battleField[battleField.length-1][0]){
+      for(_ in battleField){
+        p2_deck.unshift(battleField[_]);
+      }
+      p2_deck_size-=battleField.length/2;
+      p1_deck_size+=battleField.length/2;
+      var conclusion = "You lost this battle!"
+    }
+    if(battleField[battleField.length-2][0]==battleField[battleField.length-1][0]){
+      console.log(p1_deck_size + " " + p2_deck_size);
+      if(p1_deck_size > 2 && p2_deck_size > 2){
+        battleField.push(p1_deck.pop(),p1_deck.pop(),p2_deck.pop(),p2_deck.pop(),p1_deck.pop(),p2_deck.pop());
+        var status = "It's a draw!";
+        stop(battleField,p1_deck,p2_deck);
+    }
+
+      else{
+        if(p1_deck_size < 3){
+          battleField.push(p2_deck.pop(),p2_deck.pop(),p2_deck.pop(),p1_deck.pop());
+          battleField.unshift(p1_deck);
+        }
+        else{
+          battleField.push(p1_deck.pop(),p1_deck.pop(),p1_deck.pop(),p2_deck.pop());
+            battleField.unshift(p2_deck);
+        }
+        stop(battleField,p1_deck,p2_deck);
+      }
+    }
+
+
+    var msg = "its a draw!\nPlayer 1 draw: " + card_convert(battleField[battleField.length-2]) + "\nPlayer 2 draw: " + card_convert(battleField[battleField.length-1]);
+    alert(msg+ "\n" +conclusion);
+    battleField.length=0;
+  }
+
+  var card1=document.getElementById('card');
+  var card2=document.getElementById('card2');
+  document.getElementById("play").onclick = PVP;
+
+
+
+	function PVP(){
+    console.log(p1_deck);
+    console.log(p2_deck);
+    var battleField = [];
+		if(p1_deck.length <= 0){
+			alert("Game is over. You won!");
+			return;
+		};
+    if(p2_deck.length <= 0){
+      alert("Game is over. You Lost!")
+    };
+		battleField.push(p1_deck.pop());
+		battleField.push(p2_deck.pop());
+    var text = card_convert(battleField[0]);
+    var text2 = card_convert(battleField[1]);
+    card1.setAttribute('src','../img/'+battleField[0][1]+'.png');
+    card2.setAttribute('src','../img/'+battleField[1][1]+'.png');
+
+		if(battleField[0][1]>battleField[1][1]){
+      for(_ in battleField){
+        p1_deck.unshift(battleField[_]);
+      }
+      var status = "You're ahead!";
+			p1_deck_size--;
+			p2_deck_size++;
+
+		}
+		if(battleField[0][1]<battleField[1][1]){
+      for(_ in battleField){
+        p2_deck.unshift(battleField[_]);
+      }
+
+      var status = "You're behind!";
+			p2_deck_size--;
+			p1_deck_size++;
+		}
+    if(battleField[0][1]==battleField[1][1]){
+      console.log(p1_deck.length + " " + p2_deck.length);
+      if(p1_deck_size > 2 && p2_deck_size > 2){
+        battleField.push(p1_deck.pop(),p1_deck.pop(),p2_deck.pop(),p2_deck.pop(),p1_deck.pop(),p2_deck.pop());
+        var status = "It's a draw!";
+        stop(battleField,p1_deck,p2_deck);
+    }
+
+      else{
+        if(p1_deck_size < 3){
+
+          battleField.push(p2_deck.pop(),p2_deck.pop(),p2_deck.pop(),p1_deck.pop());
+          battleField.unshift(p1_deck);
+
+        }
+        else{
+          battleField.push(p1_deck.pop(),p1_deck.pop(),p1_deck.pop(),p2_deck.pop());
+          battleField.unshift(p2_deck);
+        }
+        stop(battleField,p1_deck,p2_deck);
+      }
+    }
+
+
+    document.getElementById("status").innerHTML = status;
+    document.getElementById("txt").innerHTML = "Player 1 drew: "+text;
+    document.getElementById("txt2").innerHTML = "Player 2 drew: "+text2;
+    document.getElementById("deck").innerHTML = "Deck size: "+p1_deck_size;
+    document.getElementById("deck2").innerHTML = "Deck size: "+p2_deck_size;
+
+	}
+
+
+	}
+  </script>
+
+  <div align = "center">
+    <input id="play"  type="submit" value="" onclick="PVP();"/>
+  </div>
+  <div class = "cards" align = "center">
+        <div class="responsive">
+          <div class="gallery">
+              <img id = "card">
+            <div id = "txt"></div>
+            <div id = "deck"></div>
+          </div>
+        </div>
+        <div class="responsive">
+          <div class="gallery">
+              <img id = "card2">
+            <div id = "txt2"></div>
+            <div id = "deck2"></div>
+          </div>
+        </div>
+  </div>
+  <div class="user" id = "status" align = "center"></div>
+  <div class ="draw" id = "statusDraw"></div>
+</body>
+
+</html>
