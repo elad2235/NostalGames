@@ -24,7 +24,7 @@ session_start();
 
     <script type='text/javascript'>
             alert('<?php echo "amount of revenue from premiun users is  $total $" ?>');
-            window.location.replace("../admin.html");
+            window.location.replace("../admin.php");
           </script>
   <?php
 
