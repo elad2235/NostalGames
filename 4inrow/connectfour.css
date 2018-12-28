@@ -79,8 +79,39 @@ border-color:black;
   width:200px;
   font-size:46px;
   padding: 15px 20px;
-  font-family: Asap,sans-serif;
+  font-family: 'Asap',sans-serif;
   position:absolute;
   right:50px;
   background-color: "black";
 }
+
+.endMenu
+{
+  top:-5em;
+  left:-5em;
+  width: 500px;
+  padding: 10px;
+  border: 5px solid blue;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  z-index:999999999;
+  transform: translate(-50%,-50%);
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+.button
+{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */
