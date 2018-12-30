@@ -19,7 +19,7 @@ h1 {color: blue;}
     <p><a href="gamelib.html"> <img src="img/play-btn.png" ></a></p>
     <p><a href="test.php"> <img src="img/scoreboard-btn.png" ></a></p>
     <p><a href="randGame.php"> <img src="img/random-btn.png" ></a></p>
-    <p><a href="test.php"> <img src="img/usr_info-btn.png" ></a></p>
+    <p><a href="/userq/info_prem.php"> <img src="img/usr_info-btn.png" ></a></p>
     <p><a href="/userQ/info_prem.php"> <img src="img/payment-btn.png" ></a></p>
     <p><a href="test.php"> <img src="img/messages-btn.png" ></a></p>
     <p><a href="disconnect.php"> <img src="img/logout-btn.png" ></a></p>

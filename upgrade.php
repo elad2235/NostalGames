@@ -14,7 +14,8 @@ $cnum=$_POST['cnum'];
 
 $s = " INSERT INTO `premium`(`username`, `first_name`, `last_name`, `exp_date`, `date`, `card_number`) VALUES ('$user','$fname','$lname','$exp',CURDATE(),'$cnum')";
 mysqli_query($conn,$s);
-
+$sql=" INSERT INTO `income`(`date`, `source`, `amount`) VALUES (CURDATE(),'premium',5)";
+mysqli_query($conn,$sql);
 $s ="UPDATE `users` SET `permission`=2 WHERE `username`='$user'";
 mysqli_query($conn,$s);
 
