@@ -3,10 +3,12 @@ var turn=0;
 var player1=0;
 var player2=0;
 let tabel;
+var winner=0;
 
 window.onload = function()
 {
      table = document.querySelectorAll('.square');
+     menu = document.querySelectorAll('.endMenu');
     for(var i=0; i<fieldOfPlay.length;i++)
     {
         fieldOfPlay[i]=0;
@@ -71,7 +73,6 @@ window.onload = function()
         }
 
         table[index].style.opacity =1;
-
       }
 
 
@@ -96,23 +97,23 @@ window.onload = function()
         var usr;
         for (var i=0;i<7 && !flag ;i++)
         {
+          flag=false;
               for(var j=0;j<7 && !flag;j++)
               {
                 if(fieldOfPlay[i*7+j]==1 || fieldOfPlay[i*7+j]==-1)
                 {
                   usr=fieldOfPlay[i*7+j];
-                  for(var k=0;k<4 ;k++)
+                  for(var k=0;k<=3 ;k++)
                   {
                         res =i*7+j+k;
                         flag = (usr==fieldOfPlay[res]);
-
-                    if(!flag) break;
+                        if(!flag) break;
+                  }
+                  if(Math.floor((i*7+j)/7)!=Math.floor((i*7+j+3)/7)&&flag)
+                  {
+                    flag=false;
                   }
 
-                  // if(Math.floor((i*7+j+1)/7)!==Math.floor((i*7+j+5)/7))
-                  // {
-                  //   flag=false;
-                  // }
                 }
               }
         }
@@ -222,27 +223,37 @@ window.onload = function()
 
       function Victory(usr,ind)
       {
+        var flag=0;
         var player = document.getElementById('ScoreBoard');
-        //console.log(ind);
         if(usr==0)
         {
           player.innerHTML="Its a Draw!";
+          flag=1;
         }
         else if(usr==1)
         {
           player.innerHTML="Red Won !";
+          flag=1;
           }
 
           else {
             player.innerHTML="Yellow Won !";
+            flag=1;
           }
         table.forEach(cube => cube.removeEventListener('click', insertR ));
+        if(flag)
+        {
+          winner=usr;
+          game = document.querySelectorAll('.box-container');
+          game[0].style.opacity="0.5";
+          menu[0].style.top="50%";
+          menu[0].style.left="50%";
+        }
       }
 
       function CheckDraw()
       {
         var flag=false;
-
         for(var i=0;i<42 && !flag;i++)
         {
           flag = fieldOfPlay[i]==0;
@@ -252,6 +263,11 @@ window.onload = function()
         {
           Victory(0,0);
         }
-
       }
+}
+
+function updateWinner()
+{
+  x=document.getElementById('save');
+  x.value=winner;
 }

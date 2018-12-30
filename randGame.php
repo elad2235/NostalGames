@@ -8,13 +8,13 @@ if(!isset($_SESSION['user']))
 else {
     if($_SESSION['perm']==1)
     {
-      header('location:/4inrow/connectfour.html');
+      header('location:/4inrow/player2.html');
     }
     else {
       $gameNum=rand()%2;
       if($gameNum==0)
       {
-        header('location:/4inrow/connectfour.html');
+        header('location:/4inrow/player2.html');
       }
 
       else {
