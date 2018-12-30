@@ -5,10 +5,22 @@ var player2=0;
 let tabel;
 var winner=0;
 
+
 window.onload = function()
 {
      table = document.querySelectorAll('.square');
      menu = document.querySelectorAll('.endMenu');
+     audio = document.getElementById('myaudio');
+     audio.volume=0.2;
+     audio.addEventListener('ended',changeSong);
+     function changeSong()
+     {
+       var rand = Math.floor((Math.random()*10))%3;
+       audio.src ="../4inrow/"+rand+".ogg";
+       audio.load();
+       audio.play();
+     }
+
     for(var i=0; i<fieldOfPlay.length;i++)
     {
         fieldOfPlay[i]=0;
