@@ -39,6 +39,9 @@
        ?>
      </div>
      </div>
-
+     <div class = "ctrl">
+     <div class='controls'><a href="../user_perm.php"> <img src="../img/MainMenu.png" ></a></div>
+         <div class='controls'> <img src="../img/Back.png" onclick=window.history.back()></div>
+   </div>
     </body>
 </html>

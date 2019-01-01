@@ -30,3 +30,20 @@ body
   left:40%;
   top:15%;
 }
+
+
+.ctrl
+{
+  position: absolute;
+  bottom:0%;
+}
+
+.controls
+{
+  cursor:pointer;
+  position: relative;
+  margin-top:-5px;
+  padding-top:20px;
+  width: auto;
+  height: auto;
+}

@@ -7,15 +7,13 @@ if(!isset($_SESSION['perm']))
 }
 
 else {
-
-
       $permission = $_SESSION['perm'];
       if($permission == 1)
       {
         header('location:usr_main.php');
       }
 
-      elseif ($permission == 3) {
+      elseif ($permission == 0) {
         header('location:admin.php');
       }
 

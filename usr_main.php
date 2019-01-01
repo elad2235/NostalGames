@@ -80,3 +80,17 @@ h1 {color: blue;}
 
 </body>
 </html>
+
+
+<?php
+  if(!isset($_SESSION['perm']))
+  {
+    header('location:user_perm.php');
+  }
+  else {
+    if($_SESSION['perm']!=1)
+    {
+      header('location:user_perm.php');
+    }
+  }
+ ?>
