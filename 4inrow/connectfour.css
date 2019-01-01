@@ -9,12 +9,14 @@ body
   background-image: url("bgGame.jpeg");
 }
 
-h3
+/* h3
 {
+  padding-top:0px;
+  margin-top:0px;
   text-align: center;
   font-family: 'Asap',sans-serif;
   font-size: 50px;
-}
+} */
 
 .container
 {
@@ -115,3 +117,33 @@ border-color:black;
 
 .button2 {background-color: #008CBA;} /* Blue */
 .button3 {background-color: #f44336;} /* Red */
+
+.player
+{
+  margin:0;
+  padding:0;
+}
+
+img{
+  position: absolute;
+  left:35%;
+  margin-top:0px;
+  padding-top:0px;
+  /* display: block; */
+  margin-left: 0;
+  margin-right: 0;
+}
+.ctrl
+{
+  position: absolute;
+  bottom:10%;
+}
+
+.controls
+{
+  cursor:pointer;
+  position: relative;
+  padding-top:50px;
+  width: auto;
+  height: auto;
+}
