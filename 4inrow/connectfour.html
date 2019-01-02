@@ -5,8 +5,15 @@
     <title>Connect Four Game</title>
     <link rel ="stylesheet" href ="connectfour.css">
     <script type ="text/javascript" src="connectfour.js"> </script>
-<h3> Connect Four </h3>
+    <div class="player">
+      <audio controls autoplay id="myaudio" >
+         <source src="FeelGood.ogg" type="audio/ogg">
+         <source src="FeelGood.mp3" type="audio/mpeg">
+     Your browser does not support the audio element.
+   </audio>
+<img src="../img/connect_four.png" class ="title">
 </head>
+</div>
     <body>
       <div class ="Score" id="ScoreBoard">Start!</div>
       <div class ="box-container">
@@ -73,5 +80,10 @@
       <input type="submit" class="button button3" name="close" value="CLOSE"/>
     </form>
     </div>
+    <div class = "ctrl">
+      <div class='controls'><a href="../4inrow/scoreboard.php"> <img src="../img/scoreboard-btn.png" ></a></div>
+    <div class='controls'><a href="../user_perm.php"> <img src="../img/MainMenu.png" ></a></div>
+        <div class='controls'> <img src="../img/Back.png" onclick=window.history.back()></div>
+  </div>
     </body>
 </html>

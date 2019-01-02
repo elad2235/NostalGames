@@ -19,23 +19,37 @@ h2 {color: blue;}
 </style>
 </head>
 <body>
+  <title>Admin Panel</title>
 
 <h1 align="center"><img src = img/welcome.png></h1>
 <div class="w3-container" align="center">
-    <p><a href="gamelib.html"> <img src="img/play-btn.png" ></a></p>
-    <p><a href="test.php"> <img src="img/scoreboard-btn.png" ></a></p>
+    <p><a href="gamelib.php"> <img src="img/play-btn.png" ></a></p>
+    <p><a href="scoreboard.php"> <img src="img/scoreboard-btn.png" ></a></p>
     <p><a href="/adminQ/timeTable.php"> <img src="img/manage_users-btn.png" ></a></p>
     <p><a href="disconnect.php"> <img src="img/logout-btn.png" ></a></p>
 </div>
 <div class="admin">
   <h2><img src = img/admin_panel.png></h2>
-  <p><a href="test.php"> <img src="img/messages-btn.png" ></a></p>
+  <p><a href="adminQ/messages.php"> <img src="img/messages-btn.png" ></a></p>
   <p><a href="adminq/premiumusers.php"> <img src="img/prem_users-btn.png" ></a></p>
   <p><a href="adminQ/UserPerm.php"> <img src="img/user-permissions-btn.png" ></a></p>
-  <p><a href="adminQ/Pre_rev.php"> <img src="img/premium_rev-btn.png" ></a></p>
-  <p><a href="test.php"> <img src="img/ads_rev-btn.png" ></a></p>
+  <p><a href="adminQ/revenue.php"> <img src="img/Revenue.png" ></a></p>
 </div>
 
 
 </body>
 </html>
+
+<?php
+  session_start();
+  if(!isset($_SESSION['perm']))
+  {
+    header('location:user_perm.php');
+  }
+  else {
+    if($_SESSION['perm']!=0)
+    {
+      header('location:user_perm.php');
+    }
+  }
+ ?>

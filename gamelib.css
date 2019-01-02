@@ -57,7 +57,11 @@ border-radius:5px;
   cursor:pointer;
 }
 
-img:hover{
+img[src="/img/4in.jpg"]:hover{
+  border:1px solid black;
+}
+
+img[src="/img/cardst.png"]:hover{
   border:1px solid black;
 }
 
@@ -68,13 +72,14 @@ img:hover{
 
 h3
 {
-  padding-top:50px;
+  padding-top:0px;
   padding-left:35%;
   position: relative;
   font-family: 'Asap',sans-serif;
   font-size: 50px;
   color:black;
 }
+
 
 .text {
   background-color: #4CAF50;
@@ -111,4 +116,29 @@ h3
 .second:hover .middle
 {
   opacity: 1;
+}
+.title
+{
+  width: auto;
+  height: auto;
+}
+
+.ctrl
+{
+  position: absolute;
+  bottom:0%;
+}
+
+.controls
+{
+  cursor:pointer;
+  position: relative;
+  margin-top:-5px;
+  padding-top:20px;
+  width: 100%;
+  height: 100%;
+}
+.controls img{
+  height:auto;
+  width:auto;
 }

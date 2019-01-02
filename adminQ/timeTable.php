@@ -28,7 +28,7 @@ $months =[
     <title>Users By Month</title>
     <link rel ="stylesheet" href ="timeTable.css">
     <body>
-      <h3>Users By Month:</h3>
+      <h3><div class="title"><img src="../img/users_by_month.png"></div></h3>
       <table>
                 <tr><th>Month Registered</th><th>Amount</th></tr>
         <?php
@@ -39,6 +39,11 @@ $months =[
               echo "<tr><td>".$months[$row[0]]."</td><td>".$row[1]."</td></tr>";
             }
          ?>
+
+         <div class = "ctrl">
+         <div class='controls'><a href="../user_perm.php"> <img src="../img/MainMenu.png" ></a></div>
+             <div class='controls'> <img src="../img/Back.png" onclick=window.history.back()></div>
+       </div>
       </table>
 
     </body>

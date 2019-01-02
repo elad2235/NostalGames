@@ -20,15 +20,15 @@ session_start();
       $_SESSION['user']=$name;
       $_SESSION['perm']=$usr->permission;
 
-      if($usr->permission == 0){
+      if($_SESSION['perm'] == 0){
         header('location:admin.php');
       }
 
-      if($usr->permission == 1){
+      if($_SESSION['perm'] == 1){
         header('location:usr_main.php');
       }
 
-      if($usr->permission == 2){
+      if($_SESSION['perm'] == 2){
         header('location:premium_main.php');
       }
 

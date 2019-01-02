@@ -34,6 +34,7 @@ td:hover
 
 h3
 {
+  margin-top:0;
   font-family: sans-serif;
   position: center;
   text-align: center;
@@ -48,4 +49,26 @@ h3
   text-align: center;
   font-weight: bold;
 
+}
+
+
+
+.ctrl
+{
+  position: absolute;
+  bottom:0%;
+}
+
+.controls
+{
+  cursor:pointer;
+  position: relative;
+  margin-top:-5px;
+  padding-top:20px;
+  width: 100%;
+  height: 100%;
+}
+.controls img{
+  height:auto;
+  width:auto;
 }

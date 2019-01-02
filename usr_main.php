@@ -35,11 +35,12 @@ h1 {color: blue;}
 </style>
 </head>
 <body>
+  <title>Main Menu</title>
 
 <h1 align="center"><img src = img/welcome.png></h1>
 <div class="w3-container" align="center">
   <p><a href="gamelib_base.html"> <img src="img/play-btn.png" ></a></p>
-  <p><a href="test.php"> <img src="img/scoreboard-btn.png" ></a></p>
+  <p><a href="scoreboard.php"> <img src="img/scoreboard-btn.png" ></a></p>
   <p><a href="randGame.php"> <img src="img/random-btn.png" ></a></p>
   <p><a href="userq/info_base.php"> <img src="img/usr_info-btn.png" ></a></p>
   <p><a href="paymentPage.php"> <img src="img/prem-btn.png" ></a></p>
@@ -80,3 +81,17 @@ h1 {color: blue;}
 
 </body>
 </html>
+
+
+<?php
+  if(!isset($_SESSION['perm']))
+  {
+    header('location:user_perm.php');
+  }
+  else {
+    if($_SESSION['perm']!=1)
+    {
+      header('location:user_perm.php');
+    }
+  }
+ ?>
