@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>User Information</title>
-    <link rel ="stylesheet" href ="info.css">
+    <title>Payement Information</title>
+    <link rel ="stylesheet" href ="info_prem.css">
 </head>
     <body>
-      <div class="title"><img src="../img/user_info.png"></div>
+      <div class="title"><img src="../img/payment-info.png"></div>
       <div class="container">
         <div class="box">
       <?php
@@ -37,12 +37,17 @@
               $sql2 = " SELECT * FROM `premium` WHERE `username`='$usr'";
               $res2 = mysqli_query($conn,$sql2);
               $print2=$res2->fetch_assoc();
-              echo "Username: ".$print2['username']." <br>Plan:Premium <br>First name: ".$print2['first_name']."<br>Last Name:".$print2['last_name'];
+              echo "Username: ".$print2['username']."<br>First name: ".$print2['first_name']."<br>Last Name:".$print2['last_name'];
             }
       }
        ?>
      </div>
      </div>
+
+     <div class = "ctrl">
+     <div class='controls'><a href="../user_perm.php"> <img src="../img/MainMenu.png" ></a></div>
+         <div class='controls'> <img src="../img/Back.png" onclick=window.history.back()></div>
+   </div>
 
     </body>
 </html>

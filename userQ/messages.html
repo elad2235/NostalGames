@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <style>
+    .msg{
+    padding-left: 400px;
+  }
+  .submit{
+    position: absolute;
+    padding-left: 250px;
+  }
+  #submit{
+    width: 100px;
+    height: 30px;
+  }
+
+  body {
+      background-image: url("../img/bg.png");
+      background-size: 100%;
+  }
+
+  .ctrl
+  {
+    position: absolute;
+    bottom:0%;
+  }
+
+  .controls
+  {
+    cursor:pointer;
+    position: relative;
+    margin-top:-5px;
+    padding-top:20px;
+    width: auto;
+    height: auto;
+  }
+
+
+  </style>
+  <h1 align="center"> <img src = ../img/msgadmin.png></h1>
+  <div class="msg">
+
+    <h3>Please type your message in the form below to contact the admin:</h3>
+
+    <form action="post_msg.php" method="POST" align="center">
+      <textarea name="message" style="width:600px; height:300px;" maxlength="255" placeholder="Your message here..."></textarea>
+      <br>
+      <div class = "submit">
+      <input type="submit" id = "submit" value="Submit" >
+      </div>
+    </form>
+  </div>
+
+  <div class = "ctrl">
+  <div class='controls'><a href="../user_perm.php"> <img src="../img/MainMenu.png" ></a></div>
+      <div class='controls'> <img src="../img/Back.png" onclick=window.history.back()></div>
+</div>
+
+</body>
+
+</html>
