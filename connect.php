@@ -10,9 +10,13 @@ session_start();
     $pass = $_POST['pswd'];
     $encPASS=hash('SHA256',$pass);
     $s = " SELECT * FROM `users` WHERE `username` = '$name' AND `password` = '$encPASS'";
+    $b = " SELECT * FROM `users` WHERE `username` = '$name'";
 
     $res = mysqli_query($conn,$s);
     $num = mysqli_num_rows($res);
+
+    $res2 = mysqli_query($conn,$b);
+    $num2 = mysqli_num_rows($res2);
 
     if($num == 1)
     {
@@ -34,8 +38,17 @@ session_start();
 
     }
 
-    else {
-      header('location:login.php');
+    else
+    {
+
+
+          ?>
+          <script type='text/javascript'>
+              alert('User Dosent Exist');
+              window.location.replace("/login.php");
+              </script>
+              <?php
+
     }
 
 ?>

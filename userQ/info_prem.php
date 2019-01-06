@@ -38,6 +38,8 @@
               $res2 = mysqli_query($conn,$sql2);
               $print2=$res2->fetch_assoc();
               echo "Username: ".$print2['username']."<br>First name: ".$print2['first_name']."<br>Last Name:".$print2['last_name'];
+              $num=substr($print2['card_number'],0,4);
+              echo "<br>Card:".$num."******";
             }
       }
        ?>
